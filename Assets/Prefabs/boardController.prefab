@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1069878603325572}
+  m_IsPrefabParent: 1
+--- !u!1 &1069878603325572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 224080380157990478}
+  - component: {fileID: 114810390293962916}
+  - component: {fileID: 114594664823425188}
+  m_Layer: 5
+  m_Name: boardController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &114594664823425188
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1069878603325572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c38ddb3943c13cc46acd43f44c06aa19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gamecontrol: {fileID: 0}
+  maxH: 9
+  maxW: 9
+--- !u!114 &114810390293962916
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1069878603325572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb58277147a7da2419753a61f7babc5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourceButton: {fileID: 1064694889336360, guid: d109acefe2b084e47b29fa5c909755fd,
+    type: 2}
+  parentTransform: {fileID: 224080380157990478}
+  textureList:
+  - {fileID: 2800000, guid: 0980428efe19e83459b652a96b86bbe1, type: 3}
+  - {fileID: 2800000, guid: a0582263b5c3c204ea923f9102279696, type: 3}
+  - {fileID: 2800000, guid: 03e15c080a839b044b64930a278e9396, type: 3}
+  - {fileID: 2800000, guid: e84e25fa2e27da14e9e25e1837e96c82, type: 3}
+  - {fileID: 2800000, guid: 07f3c6521bd4bd04dabbb63381a3ca4a, type: 3}
+  spacingDistance: 5
+  boardW: 9
+  boardH: 9
+--- !u!224 &224080380157990478
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1069878603325572}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 1}
