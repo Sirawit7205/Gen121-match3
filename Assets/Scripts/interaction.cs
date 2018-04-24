@@ -1,8 +1,8 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class interaction : MonoBehaviour {
+public class interaction : MonoBehaviour
+{
 
     public int gridPosH, gridPosW, animationSteps;
     public RectTransform panelTransform;
@@ -21,7 +21,7 @@ public class interaction : MonoBehaviour {
         float newPosX = Input.mousePosition.x;
         float newPosY = Input.mousePosition.y;
 
-        if(transform.GetComponentInParent<objectController>().allowInteraction)
+        if (transform.GetComponentInParent<objectController>().allowInteraction)
         {
             if (Mathf.Abs(newPosX - posX) >= Mathf.Abs(newPosY - posY))         //left-right
             {
@@ -40,28 +40,30 @@ public class interaction : MonoBehaviour {
         }
     }
 
-    public void SlideObject(int direction)
+    public void SlideObject(int direction, int amt)
     {
+        //Debug.Log("Moving object at " + gridPosH + " " + gridPosW);
         if (direction == 0)            //left
         {
-            StartCoroutine(dragWithAnimation(transform.position, transform.position + (Vector3.left * (panelTransform.rect.width + spacingDistance))));
-            gridPosW--;
+            StartCoroutine(dragWithAnimation(transform.position, transform.position + (Vector3.left * (panelTransform.rect.width + spacingDistance) * amt)));
+            gridPosW-=amt;
         }
         else if (direction == 1)       //right
         {
-            StartCoroutine(dragWithAnimation(transform.position, transform.position + (Vector3.right * (panelTransform.rect.width + spacingDistance))));
-            gridPosW++;
+            StartCoroutine(dragWithAnimation(transform.position, transform.position + (Vector3.right * (panelTransform.rect.width + spacingDistance) * amt)));
+            gridPosW+=amt;
         }
         else if (direction == 2)       //up
         {
-            StartCoroutine(dragWithAnimation(transform.position, transform.position + (Vector3.up * (panelTransform.rect.height + spacingDistance))));
-            gridPosH--;
+            StartCoroutine(dragWithAnimation(transform.position, transform.position + (Vector3.up * (panelTransform.rect.height + spacingDistance) * amt)));
+            gridPosH-=amt;
         }
         else if (direction == 3)       //down
         {
-            StartCoroutine(dragWithAnimation(transform.position, transform.position + (Vector3.down * (panelTransform.rect.height + spacingDistance))));
-            gridPosH++;
+            StartCoroutine(dragWithAnimation(transform.position, transform.position + (Vector3.down * (panelTransform.rect.height + spacingDistance) * amt)));
+            gridPosH+=amt;
         }
+        //Debug.Log("Now at " + gridPosH + " " + gridPosW);
     }
 
     IEnumerator dragWithAnimation(Vector3 startPos, Vector3 endPos)
@@ -69,9 +71,9 @@ public class interaction : MonoBehaviour {
         //Debug.Log("Now dragging from" + startPos + " to " + endPos);
         transform.GetComponentInParent<objectController>().allowInteraction = false;
 
-        for (int i = 1;i <= animationSteps;i++)
+        for (int i = 1; i <= animationSteps; i++)
         {
-            transform.position = Vector3.Lerp(startPos, endPos, ((float)i/animationSteps));
+            transform.position = Vector3.Lerp(startPos, endPos, ((float)i / animationSteps));
             //Debug.Log("Step " + i + " current position = " + transform.position);
             yield return new WaitForSeconds(animationDelay);
         }

@@ -42,8 +42,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf724af0f641a14892045c6479355cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridPosX: 0
-  gridPosY: 0
+  gridPosH: 0
+  gridPosW: 0
   animationSteps: 10
   panelTransform: {fileID: 224634547179045962}
   spacingDistance: 5

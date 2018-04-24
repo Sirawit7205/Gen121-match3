@@ -42,6 +42,7 @@ MonoBehaviour:
   gamecontrol: {fileID: 0}
   maxH: 9
   maxW: 9
+  allowInteraction: 1
 --- !u!114 &114810390293962916
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -63,6 +64,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: e84e25fa2e27da14e9e25e1837e96c82, type: 3}
   - {fileID: 2800000, guid: 07f3c6521bd4bd04dabbb63381a3ca4a, type: 3}
   spacingDistance: 5
+  generateDelayTime: 0.001
   boardW: 9
   boardH: 9
 --- !u!224 &224080380157990478

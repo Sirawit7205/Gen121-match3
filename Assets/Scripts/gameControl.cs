@@ -1,8 +1,8 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class gameControl : MonoBehaviour {
+public class gameControl : MonoBehaviour
+{
     public GameObject boardControl;
     public int maxH, maxW;
     private bool[,] removed = new bool[9, 9];
@@ -11,6 +11,16 @@ public class gameControl : MonoBehaviour {
     {
         int removeCount = 0;
 
+        //clean removed array
+        for (int i = 0; i < maxH; i++)
+        {
+            for (int j = 0; j < maxW; j++)
+            {
+                removed[i, j] = false;
+            }
+        }
+
+        //check
         for (int i = 0; i < maxH; i++)
         {
             for (int j = 0; j < maxW; j++)
@@ -62,7 +72,7 @@ public class gameControl : MonoBehaviour {
 
             removeCount = up + down + 1;
         }
-        else if(left + right +1 >=3)
+        else if (left + right + 1 >= 3)
         {
             for (int k = j - 1; k >= j - left; k--)
             {
@@ -83,5 +93,56 @@ public class gameControl : MonoBehaviour {
         }
 
         return removeCount;
+    }
+
+    public IEnumerator slideDownAndFillBoard()
+    {
+        GameObject[,] btns = boardControl.GetComponent<objectController>().buttonList;
+        int lastIdx, cur, removeCount;
+
+        //for possible chain effects
+        do
+        {
+            yield return new WaitForSeconds(0.3f); //wait for next frame
+
+            //for each columns
+            for (int j = 0; j < maxW; j++)
+            {
+                lastIdx = maxH - 1;
+                cur = maxH - 1;
+
+                //do until the whole column was slide down
+                while (lastIdx != 0 && cur >= 0)
+                {
+                    //move up to first removed location
+                    while (lastIdx > 0 && !(btns[lastIdx, j] == null))
+                    {
+                        lastIdx--;
+                        //Debug.Log("Moved up to " + lastIdx);
+                    }
+
+                    cur = lastIdx;
+                    //find objects above which is available
+                    while (cur >= 0 && btns[cur, j] == null)
+                    {
+                        cur--;
+                        //Debug.Log("Find next avail at " + cur);
+                    }
+
+                    //if still not out of bounds
+                    if (cur >= 0)
+                    {
+                        boardControl.GetComponent<objectController>().slideDown(j, cur, lastIdx);
+                    }
+                }
+            }
+            //add new objects to missing slots
+            while (!boardControl.GetComponent<objectController>().allowInteraction) yield return new WaitForSeconds(0.01f);
+            StartCoroutine(boardControl.GetComponent<boardSpawner>().generateBoard());
+            while (!boardControl.GetComponent<boardSpawner>().idle) yield return new WaitForSeconds(0.01f);
+
+            removeCount = checkValidMoves();
+            //Debug.Log("In this iteration, " + removeCount + " objects were removed.");
+        } while (removeCount != 0);
     }
 }
