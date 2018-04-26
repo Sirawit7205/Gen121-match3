@@ -4,6 +4,7 @@ using UnityEngine;
 public class objectController : MonoBehaviour
 {
     public gameControl gamecontrol;
+    public scoreController scorecontrol;
     public GameObject[,] buttonList = new GameObject[9, 9];
     public int maxH, maxW;
     public bool allowInteraction = true;
@@ -15,7 +16,7 @@ public class objectController : MonoBehaviour
 
         if (dir == 0)                            //left
         {
-            if (h > 0)
+            if (w > 0)
             {
                 buttonList[h, w].GetComponent<interaction>().SlideObject(0, 1);
                 buttonList[h, w - 1].GetComponent<interaction>().SlideObject(1, 1);
@@ -27,7 +28,7 @@ public class objectController : MonoBehaviour
         }
         else if (dir == 1)                       //right
         {
-            if (h < maxW - 1)
+            if (w < maxW - 1)
             {
                 buttonList[h, w].GetComponent<interaction>().SlideObject(1, 1);
                 buttonList[h, w + 1].GetComponent<interaction>().SlideObject(0, 1);
@@ -39,7 +40,7 @@ public class objectController : MonoBehaviour
         }
         else if (dir == 2)                       //up
         {
-            if (w > 0)
+            if (h > 0)
             {
                 buttonList[h, w].GetComponent<interaction>().SlideObject(2, 1);
                 buttonList[h - 1, w].GetComponent<interaction>().SlideObject(3, 1);
@@ -51,7 +52,7 @@ public class objectController : MonoBehaviour
         }
         else if (dir == 3)                       //down
         {
-            if (w < maxH - 1)
+            if (h < maxH - 1)
             {
                 buttonList[h, w].GetComponent<interaction>().SlideObject(3, 1);
                 buttonList[h + 1, w].GetComponent<interaction>().SlideObject(2, 1);
@@ -63,7 +64,10 @@ public class objectController : MonoBehaviour
         }
         //Debug.Log("On main event, " + removeCount + " objects were removed.");
         if (checkValid && removeCount != 0)
+        {
             StartCoroutine(gCon.slideDownAndFillBoard());
+            scorecontrol.addPoints(removeCount, false);
+        }
     }
 
     public void slideDown(int col, int src, int dest)

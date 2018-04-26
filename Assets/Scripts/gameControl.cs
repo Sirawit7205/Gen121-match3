@@ -4,6 +4,7 @@ using UnityEngine;
 public class gameControl : MonoBehaviour
 {
     public GameObject boardControl;
+    public scoreController scorecontrol;
     public int maxH, maxW;
     private bool[,] removed = new bool[9, 9];
 
@@ -142,6 +143,8 @@ public class gameControl : MonoBehaviour
             while (!boardControl.GetComponent<boardSpawner>().idle) yield return new WaitForSeconds(0.01f);
 
             removeCount = checkValidMoves();
+            if (removeCount != 0)
+                scorecontrol.addPoints(removeCount, true);
             //Debug.Log("In this iteration, " + removeCount + " objects were removed.");
         } while (removeCount != 0);
     }
