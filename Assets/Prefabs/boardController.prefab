@@ -41,6 +41,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gamecontrol: {fileID: 0}
   scorecontrol: {fileID: 0}
+  timecontrol: {fileID: 0}
   maxH: 9
   maxW: 9
   allowInteraction: 1

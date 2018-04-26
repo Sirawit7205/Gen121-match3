@@ -37,6 +37,7 @@ public class gameController : MonoBehaviour
         GameObject[,] btns = boardControl.GetComponent<objectController>().buttonList;
         int up = 0, down = 0, left = 0, right = 0, removeCount = 0;
 
+        //if this object is not removed yet, check for matching color in all directions
         if (!removed[i, j])
         {
             while (i - up - 1 >= 0 && btns[i, j].GetComponent<shape>().texture == btns[i - up - 1, j].GetComponent<shape>().texture)
@@ -54,17 +55,20 @@ public class gameController : MonoBehaviour
 
         //Debug.Log("Matches colors in UDLR: " + up + " " + down + " " + left + " " + right);
 
+        //vertical match
         if (up + down + 1 >= 3)
         {
+            //remove upper
             for (int k = i - 1; k >= i - up; k--)
             {
                 Destroy(btns[k, j], 0.2f);
                 removed[k, j] = true;
             }
 
-            Destroy(btns[i, j], 0.2f);
+            Destroy(btns[i, j], 0.2f);      //remove current
             removed[i, j] = true;
 
+            //remove lower
             for (int k = i + 1; k <= i + down; k++)
             {
                 Destroy(btns[k, j], 0.2f);
@@ -73,17 +77,20 @@ public class gameController : MonoBehaviour
 
             removeCount = up + down + 1;
         }
+        //horizontal match
         else if (left + right + 1 >= 3)
         {
+            //remove left
             for (int k = j - 1; k >= j - left; k--)
             {
                 Destroy(btns[i, k], 0.2f);
                 removed[i, k] = true;
             }
 
-            Destroy(btns[i, j], 0.2f);
+            Destroy(btns[i, j], 0.2f);      //remove current
             removed[i, j] = true;
 
+            //remove right
             for (int k = j + 1; k <= j + right; k++)
             {
                 Destroy(btns[i, k], 0.2f);
@@ -142,9 +149,9 @@ public class gameController : MonoBehaviour
             StartCoroutine(boardControl.GetComponent<boardSpawner>().generateBoard(true));
             while (!boardControl.GetComponent<boardSpawner>().idle) yield return new WaitForSeconds(0.01f);
 
-            removeCount = checkValidMoves();
+            removeCount = checkValidMoves();                    //check if there's any combos
             if (removeCount != 0)
-                scorecontrol.addPoints(removeCount, true);
+                scorecontrol.addPoints(removeCount, true);      //add points + combo bonus
             //Debug.Log("In this iteration, " + removeCount + " objects were removed.");
         } while (removeCount != 0);
     }

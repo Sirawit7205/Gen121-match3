@@ -11,7 +11,7 @@ public class interaction : MonoBehaviour
 
     public void RecordInitialPosition()
     {
-        posX = Input.mousePosition.x;
+        posX = Input.mousePosition.x;           //record initial x,y axis positions (to be compared)
         posY = Input.mousePosition.y;
     }
 
@@ -21,7 +21,7 @@ public class interaction : MonoBehaviour
         float newPosX = Input.mousePosition.x;
         float newPosY = Input.mousePosition.y;
 
-        if (transform.GetComponentInParent<objectController>().allowInteraction)
+        if (transform.GetComponentInParent<objectController>().allowInteraction)    //if the interaction is allowed
         {
             if (Mathf.Abs(newPosX - posX) >= Mathf.Abs(newPosY - posY))         //left-right
             {

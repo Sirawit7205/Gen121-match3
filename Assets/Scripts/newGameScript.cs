@@ -11,22 +11,22 @@ public class newGameScript : MonoBehaviour {
 
     public void newGame()
     {
-        destroyAllObjects();
-        scorecontrol.resetPoints();
-        timecontrol.resetTimer();
-        StartCoroutine(regenerateBoard());
+        destroyAllObjects();                    //destroy the whole board
+        scorecontrol.resetPoints();             //reset score
+        timecontrol.resetTimer();               //reset time
+        StartCoroutine(regenerateBoard());      //regenerate the whole board
     }
 
     private void destroyAllObjects()
     {
         for (int i = 0; i < objectcontrol.maxH; i++)
             for (int j = 0; j < objectcontrol.maxW; j++)
-                Destroy(objectcontrol.buttonList[i, j]);
+                Destroy(objectcontrol.buttonList[i, j]);    //destroy everything
     }
 
     IEnumerator regenerateBoard()
     {
         yield return null;          //wait for next frame
-        StartCoroutine(boardspawner.generateBoard(false));
+        StartCoroutine(boardspawner.generateBoard(false));  //generate board
     }
 }

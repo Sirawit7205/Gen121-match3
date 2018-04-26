@@ -205,11 +205,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114092897609832832, guid: 389a26dda24e10d46ac19f797d2857bc,
-        type: 2}
-      propertyPath: objectcontroller
-      value: 
-      objectReference: {fileID: 1010786369}
     - target: {fileID: 114728207055998716, guid: 389a26dda24e10d46ac19f797d2857bc,
         type: 2}
       propertyPath: boardspawner
@@ -218,6 +213,11 @@ Prefab:
     - target: {fileID: 114728207055998716, guid: 389a26dda24e10d46ac19f797d2857bc,
         type: 2}
       propertyPath: objectcontrol
+      value: 
+      objectReference: {fileID: 1010786369}
+    - target: {fileID: 114092897609832832, guid: 389a26dda24e10d46ac19f797d2857bc,
+        type: 2}
+      propertyPath: objectcontroller
       value: 
       objectReference: {fileID: 1010786369}
     m_RemovedComponents: []
@@ -711,6 +711,11 @@ Prefab:
       propertyPath: scorecontrol
       value: 
       objectReference: {fileID: 653052839}
+    - target: {fileID: 114594664823425188, guid: 2c1931eb2377e034ab2075550f6dbc65,
+        type: 2}
+      propertyPath: timecontrol
+      value: 
+      objectReference: {fileID: 1431981652}
     - target: {fileID: 114810390293962916, guid: 2c1931eb2377e034ab2075550f6dbc65,
         type: 2}
       propertyPath: timeController

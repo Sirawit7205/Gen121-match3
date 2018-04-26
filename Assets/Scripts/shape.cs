@@ -9,7 +9,7 @@ public class shape : MonoBehaviour
 
     private void OnGUI()
     {
-        //GUI.color.a = opacity;
+        //method for drawing the object
         GUI.depth = 0;
         GUI.DrawTexture(new Rect(panelTransform.position.x - (panelTransform.rect.width / 2),
                                  Screen.height - panelTransform.position.y - (panelTransform.rect.height / 2),

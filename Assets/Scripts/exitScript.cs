@@ -6,6 +6,6 @@ public class exitScript : MonoBehaviour {
 
     public void exit()
     {
-        Application.Quit();
+        Application.Quit();     //built in method for exiting the application
     }
 }

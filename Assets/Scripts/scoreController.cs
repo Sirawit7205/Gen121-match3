@@ -8,31 +8,32 @@ public class scoreController : MonoBehaviour {
 
     private void Start()
     {
-        updateText();
+        updateText();       //display init text
     }
 
     public void addPoints(int points, bool isCombo)
     {
         if (isCombo)
-            comboMultiplier++;
+            comboMultiplier++;          //add a combo
         else
-            comboMultiplier = 1;
+            comboMultiplier = 1;        //initial match, reset combo
 
-        score += points * comboMultiplier;
+        score += points * comboMultiplier;      //add score
 
-        updateText();
+        updateText();                   //update new score
     }
 
     public void resetPoints()
     {
-        score = 0;
+        score = 0;                      //reset points to init
         comboMultiplier = 1;
 
-        updateText();
+        updateText();                   //update init text
     }
 
     private void updateText()
     {
+        //score text
         scoreText.text = "Score:" + "\r\n " + score + "\r\nCombos:\r\n " + comboMultiplier;
     }
 }

@@ -222,6 +222,7 @@ MonoBehaviour:
   timeoutText: {fileID: 114965725925171688}
   objectcontroller: {fileID: 0}
   time: 300
+  currentTime: 0
 --- !u!114 &114118858893723208
 MonoBehaviour:
   m_ObjectHideFlags: 1
