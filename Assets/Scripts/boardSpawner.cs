@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class boardSpawner : MonoBehaviour
 {
-
+    public timeController timeController;
+    public objectController objectController;
     public GameObject sourceButton;
     public Transform parentTransform;
     public Texture2D[] textureList;
@@ -15,15 +15,16 @@ public class boardSpawner : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(generateBoard());
+        StartCoroutine(generateBoard(false));
     }
 
-    public IEnumerator generateBoard()
+    public IEnumerator generateBoard(bool isUpdate)
     {
         float initX, posX, posY, stepX, stepY;
         GameObject current;
 
         idle = false;
+        objectController.allowInteraction = false;
 
         initX = posX = parentTransform.position.x + ((-1) * ((sourceButton.GetComponent<RectTransform>().rect.width * (boardW / 2)) + (spacingDistance * (boardW / 2))));
         posY = parentTransform.position.y - sourceButton.GetComponent<RectTransform>().rect.height;
@@ -50,7 +51,12 @@ public class boardSpawner : MonoBehaviour
             }
             posY -= (stepY + spacingDistance);
         }
+
         idle = true;
+        objectController.allowInteraction = true;
+
+        if (!isUpdate)
+            timeController.startTimer();
     }
 
     private Texture2D randomizeTexture(int i, int j)

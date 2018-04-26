@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class objectController : MonoBehaviour
 {
-    public gameControl gamecontrol;
+    public gameController gamecontrol;
     public scoreController scorecontrol;
     public GameObject[,] buttonList = new GameObject[9, 9];
     public int maxH, maxW;
@@ -11,7 +11,7 @@ public class objectController : MonoBehaviour
 
     public void moveAdjacent(int h, int w, int dir, bool checkValid)
     {
-        gameControl gCon = gamecontrol.GetComponent<gameControl>();
+        gameController gCon = gamecontrol.GetComponent<gameController>();
         int removeCount = 0;
 
         if (dir == 0)                            //left

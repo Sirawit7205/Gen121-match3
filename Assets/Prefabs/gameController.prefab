@@ -39,6 +39,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boardControl: {fileID: 0}
+  scorecontrol: {fileID: 0}
   maxH: 9
   maxW: 9
 --- !u!224 &224910385344206858

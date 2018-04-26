@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class gameControl : MonoBehaviour
+public class gameController : MonoBehaviour
 {
     public GameObject boardControl;
     public scoreController scorecontrol;
@@ -139,7 +139,7 @@ public class gameControl : MonoBehaviour
             }
             //add new objects to missing slots
             while (!boardControl.GetComponent<objectController>().allowInteraction) yield return new WaitForSeconds(0.01f);
-            StartCoroutine(boardControl.GetComponent<boardSpawner>().generateBoard());
+            StartCoroutine(boardControl.GetComponent<boardSpawner>().generateBoard(true));
             while (!boardControl.GetComponent<boardSpawner>().idle) yield return new WaitForSeconds(0.01f);
 
             removeCount = checkValidMoves();

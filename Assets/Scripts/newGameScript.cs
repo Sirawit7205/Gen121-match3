@@ -7,11 +7,13 @@ public class newGameScript : MonoBehaviour {
     public boardSpawner boardspawner;
     public scoreController scorecontrol;
     public objectController objectcontrol;
+    public timeController timecontrol;
 
     public void newGame()
     {
         destroyAllObjects();
         scorecontrol.resetPoints();
+        timecontrol.resetTimer();
         StartCoroutine(regenerateBoard());
     }
 
@@ -25,6 +27,6 @@ public class newGameScript : MonoBehaviour {
     IEnumerator regenerateBoard()
     {
         yield return null;          //wait for next frame
-        StartCoroutine(boardspawner.generateBoard());
+        StartCoroutine(boardspawner.generateBoard(false));
     }
 }

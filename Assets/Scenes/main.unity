@@ -108,13 +108,7 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &653052839 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114616024524346398, guid: 389a26dda24e10d46ac19f797d2857bc,
-    type: 2}
-  m_PrefabInternal: {fileID: 673750909}
-  m_Script: {fileID: 11500000, guid: a1a1e60f492e881498c0bc11e88df1bd, type: 3}
---- !u!1001 &673750909
+--- !u!1001 &453017025
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -139,17 +133,17 @@ Prefab:
     - target: {fileID: 224632616731728692, guid: 389a26dda24e10d46ac19f797d2857bc,
         type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 224632616731728692, guid: 389a26dda24e10d46ac19f797d2857bc,
         type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 224632616731728692, guid: 389a26dda24e10d46ac19f797d2857bc,
         type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 224632616731728692, guid: 389a26dda24e10d46ac19f797d2857bc,
         type: 2}
@@ -211,6 +205,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114092897609832832, guid: 389a26dda24e10d46ac19f797d2857bc,
+        type: 2}
+      propertyPath: objectcontroller
+      value: 
+      objectReference: {fileID: 1010786369}
     - target: {fileID: 114728207055998716, guid: 389a26dda24e10d46ac19f797d2857bc,
         type: 2}
       propertyPath: boardspawner
@@ -224,6 +223,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 389a26dda24e10d46ac19f797d2857bc, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &653052839 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114616024524346398, guid: 389a26dda24e10d46ac19f797d2857bc,
+    type: 2}
+  m_PrefabInternal: {fileID: 453017025}
+  m_Script: {fileID: 11500000, guid: a1a1e60f492e881498c0bc11e88df1bd, type: 3}
 --- !u!1 &1003807985
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +354,7 @@ MonoBehaviour:
 RectTransform:
   m_PrefabParentObject: {fileID: 224632616731728692, guid: 389a26dda24e10d46ac19f797d2857bc,
     type: 2}
-  m_PrefabInternal: {fileID: 673750909}
+  m_PrefabInternal: {fileID: 453017025}
 --- !u!1 &1341758832
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,6 +536,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f1213394d3dd174bb941eee6ec6331a, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1431981652 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114092897609832832, guid: 389a26dda24e10d46ac19f797d2857bc,
+    type: 2}
+  m_PrefabInternal: {fileID: 453017025}
+  m_Script: {fileID: 11500000, guid: 88fcdab5ad7d16b48b1704420cce0c1c, type: 3}
 --- !u!1 &1589097468
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,6 +711,11 @@ Prefab:
       propertyPath: scorecontrol
       value: 
       objectReference: {fileID: 653052839}
+    - target: {fileID: 114810390293962916, guid: 2c1931eb2377e034ab2075550f6dbc65,
+        type: 2}
+      propertyPath: timeController
+      value: 
+      objectReference: {fileID: 1431981652}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c1931eb2377e034ab2075550f6dbc65, type: 2}
   m_IsPrefabParent: 0

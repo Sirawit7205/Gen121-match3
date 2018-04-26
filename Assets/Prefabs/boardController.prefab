@@ -40,6 +40,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamecontrol: {fileID: 0}
+  scorecontrol: {fileID: 0}
   maxH: 9
   maxW: 9
   allowInteraction: 1
@@ -54,6 +55,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb58277147a7da2419753a61f7babc5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeController: {fileID: 0}
+  objectController: {fileID: 114594664823425188}
   sourceButton: {fileID: 1064694889336360, guid: d109acefe2b084e47b29fa5c909755fd,
     type: 2}
   parentTransform: {fileID: 224080380157990478}
@@ -67,6 +70,7 @@ MonoBehaviour:
   generateDelayTime: 0.001
   boardW: 9
   boardH: 9
+  idle: 1
 --- !u!224 &224080380157990478
 RectTransform:
   m_ObjectHideFlags: 1
